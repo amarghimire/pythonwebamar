@@ -1,0 +1,33 @@
+{% extends 'master/master.html' %}
+{% block content %}
+
+<div id="contentSection">
+    <h1>Product Details</h1>
+<!--    {{productDetailsData}}-->
+    {% for product in productDetailsData %}
+    <h3> <a href="">{{product.title}}</a></h3>
+     </span>
+    <span class='label label-danger'>
+        Posted Date  {{product.posted_date}}
+    </span>
+
+    <span class='label label-success'>
+        Posted by   {{product.posted_by|title}}
+    </span>
+    <span class='label label-info'>
+        Category  {{product.category|title}}
+    </span>
+    <img src="{{product.image.url}}" class="'img-responsive" alt="" width="800">
+<!--    <video src="{{product.video.url}}" class="vid-responsive" alt="" width="300"></video>-->
+<!--    video modelsmaa garna milena-->
+    <p>
+        {{product.description|safe}}
+    </p>
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}

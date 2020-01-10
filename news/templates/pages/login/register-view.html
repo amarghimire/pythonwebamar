@@ -1,0 +1,31 @@
+
+{% extends 'master/master.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div id="contentSection">
+    <h1>this is register page</h1>
+    <hr>
+     {% if messages %}
+
+             {% for message in messages %}
+         <div class="alert alert-success">{{message}}</div>
+         {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{userRegister|crispy}}
+        <button>Register</button>
+    </form>
+    <hr>
+    
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+        <button>Login</button>
+    </form>
+</div>
+
+{% endblock %}

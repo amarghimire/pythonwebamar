@@ -1,0 +1,27 @@
+{% extends 'master/master.html' %}
+{% block content %}
+
+
+<ul class="nav navbar-nav main_nav">
+          <li class="active"><a href="{% url 'index' %}"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
+
+          {% for category in categoryData %}
+
+          {% if category.product_set.all %}
+
+          <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown" role="button"
+                                   aria-expanded="false">{{category.cat_name}}
+            <ul class="dropdown-menu" role="menu">
+              {% for product in category.musics_set.all %}
+              <li><a href="{% url 'product-details' product.slug %}">{{product.musics_set.all}}</a></li>
+              {% endfor %}
+
+            </ul>
+          </li>
+          {% else %}
+          <li><a href="#"> {{category.cat_name}} </a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+{% endblock %}

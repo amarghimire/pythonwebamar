@@ -1,0 +1,12 @@
+{% extends 'master/master.html' %}
+{% block content %}
+
+<div id="contentSection">
+    <h1>this is slider view page</h1>
+</div>
+
+{{sliderdata.title|safe}}
+<img src="{{sliderdata.image.url}}" alt="" class="img-responsive" width="300">
+{{sliderdata.description|safe}}
+
+{% endblock %}

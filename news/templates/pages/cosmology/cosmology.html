@@ -1,0 +1,26 @@
+{% extends 'master/master.html' %}
+{% block content %}
+
+
+<ul class="nav navbar-nav main_nav">
+          <li class="active"><a href="{% url 'index' %}"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
+
+    {% for category in categoryData %}
+
+            {% if category.pk %}
+                    {% if pk %}
+                        {{lambda}}
+                    {% else %}
+                        {{lamb}}
+                    {% endif %}
+
+                  {{category.cat_name}}
+                     {% for product in category.product_set.all %}
+                             {{product.product_name}}
+                     {% endfor %}
+             {% else %}
+                {{category.cat_name}}
+            {% endif %}
+    {% endfor %}
+
+{% endblock %}

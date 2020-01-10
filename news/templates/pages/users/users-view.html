@@ -1,0 +1,20 @@
+{% extends 'master/master.html' %}
+{% block content %}
+
+
+<div id="contentSection">
+    <h1> Welcome {{user.get_username|title}}</h1>
+    <h3> the page after login </h3>
+    <hr>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Logout</button>
+    </form>
+
+</div>
+
+
+
+
+
+{% endblock %}
